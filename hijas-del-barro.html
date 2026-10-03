@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Las Hijas del Barro · Producción</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--card:#ffffff;--ink:#000000;--mut:#3d3d3d;--line:#d4d4d4;--acc:#a8431f;--acc2:#6b2a12;--ok:#3f7a4a;--warn:#c27a10;--bad:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 'Public Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Public Sans',system-ui,sans-serif;margin:0;font-weight:700}
+header{padding:20px 20px 0;max-width:1200px;margin:auto}
+h1{font-size:clamp(26px,5vw,40px);font-weight:800;letter-spacing:-.02em;color:#000}
+.sub{color:var(--mut);margin:2px 0 12px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+nav{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);margin-top:8px}
+nav button{background:none;border:0;padding:10px 14px;font:600 14px inherit;font-family:inherit;color:var(--mut);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px}
+nav button.on{color:var(--acc);border-color:var(--acc)}
+main{max-width:1200px;margin:auto;padding:16px 20px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.big{font:700 34px 'Public Sans',system-ui,sans-serif;color:#000;letter-spacing:-.02em}
+.lbl{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);padding:6px;border-bottom:2px solid var(--line)}
+td{padding:3px;border-bottom:1px solid var(--line);vertical-align:middle}
+input,select{font:inherit;color:var(--ink);background:transparent;border:1px solid transparent;border-radius:2px;padding:5px 6px;width:100%}
+input:hover,select:hover{border-color:var(--line)}input:focus,select:focus{outline:2px solid var(--acc);background:var(--card)}
+input[type=checkbox]{width:18px;height:18px}
+button.b{background:var(--acc);color:#fff;border:0;border-radius:2px;padding:8px 12px;font:600 13px inherit;font-family:inherit;cursor:pointer}
+button.g{background:none;border:1px solid var(--line);color:var(--ink);border-radius:2px;padding:7px 11px;font:600 13px inherit;font-family:inherit;cursor:pointer}
+button.x{background:none;border:0;color:var(--mut);cursor:pointer;font-size:15px}
+.st-Listo{color:var(--ok);font-weight:600}.st-Enproceso{color:var(--warn);font-weight:600}.st-Porhacer{color:var(--bad);font-weight:600}
+.pill{font-size:12px;padding:3px 8px;border-radius:2px;border:1px solid var(--line);color:var(--mut)}
+.bg{height:9px;background:var(--line);border-radius:9px;overflow:hidden;margin:6px 0}.bg i{display:block;height:100%;background:var(--acc)}
+.al{padding:7px 0;border-bottom:1px dashed var(--line)}.al b{color:var(--warn)}
+.tot td{font-weight:700;border-top:2px solid var(--ink)}
+.r{text-align:right}.sec{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.shift{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.shift input,.shift select{width:auto;border-color:var(--line)}
+textarea{font:inherit;color:var(--ink);background:transparent;border:1px solid transparent;border-radius:2px;padding:5px 6px;width:100%;resize:vertical}textarea:hover{border-color:var(--line)}textarea:focus{outline:2px solid var(--acc);background:var(--card)}.cg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:720px}.dh{font-size:12px;font-weight:600;text-align:center;padding:4px}.dc{min-height:96px;border:1px solid var(--line);padding:4px;background:var(--card)}.dc.o{background:#f6f6f6}.dc.hoy{outline:2px solid var(--acc)}.ch{font-size:11px;line-height:1.25;padding:2px 5px;margin-top:3px;border-left:4px solid var(--bad);background:#f2f2f2;border-radius:3px;color:var(--ink)!important;font-weight:400!important;overflow:hidden}.ch.st-Listo{border-color:var(--ok)}.ch.st-Enproceso{border-color:var(--warn)}td{vertical-align:top}textarea{overflow:hidden;resize:none;line-height:1.35;display:block;min-height:32px}select{min-width:125px}.dg{cursor:grab;padding:4px 6px;color:var(--mut);user-select:none;font-size:16px}
+</style>
+</head>
+<body>
+<header>
+<div class="bar"><div><h1>Las Hijas del Barro</h1><p class="sub">Teatro-taller inmersivo · SEDECULTA · Valladolid / Uayma / Mérida</p></div>
+<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+<span id="sync" class="pill">Cargando…</span>
+<button class="g" id="undo" title="Deshacer" disabled>↩ Deshacer</button>
+<button class="g" id="exp">Exportar CSV</button>
+</div></div>
+<nav id="nav"></nav>
+</header>
+<main id="m"></main>
+<script>
+const TABS=[
+  ['pan','Panorama'],
+  ['gui','Guion y necesidades'],
+  ['prod','Producción'],
+  ['cal','Calendario'],
+  ['arte','Arte'],
+  ['props','Props y escenografía'],
+  ['vest','Vestuario y maquillaje'],
+  ['pres','Presupuesto'],
+  ['dir','Directorio'],
+  ['doc','Documentos y archivos']
+];
+const EST=['Por hacer','En proceso','Listo'];
+
+const D={
+  v:3,
+  cap:112500,
+  rubros:['Transporte y logística','Honorarios','Producción artística y técnica','Materiales del taller','Difusión'],
+
+  // ——— Personajes ———
+  pers:[
+    {n:'Alfarera Mayor',e:'50s',d:'Portadora de la memoria, basada en Virgilio pero femenina.'},
+    {n:'Hija del Barro de Comunidad',e:'20s',d:'Vestuario tradicional maya. Habla maya y español.'},
+    {n:'Hija del Barro de Ciudad',e:'20s',d:'Vestuario formal de 2 piezas. Desconectada del origen.'}
+  ],
+
+  // ——— Escaleta / Guion ———
+  gui:[
+    {t:'Esc 1 · La amenaza',d:15,pj:'Alfarera Mayor',a:'Alfarera descubre que el banco de tierra roja en Uayma está por agotarse o privatizado.',tl:'Público toca tierra seca vs tierra húmeda.',so:'Ocarinas'},
+    {t:'Esc 2 · El nacimiento',d:20,pj:'Alfarera Mayor + 2 Hijas',a:'Alfarera modela 2 figuras de barro que cobran vida. Ritual.',tl:'Público amasa su primera bola de barro (Virgilio instruye vía actriz). Técnica pellizco.',so:''},
+    {t:'Esc 3 · Dos mundos',d:20,pj:'2 Hijas',a:'Conflicto de las hijas: una quiere vender, otra preservar. Debate tradición/modernidad.',tl:'Cada mesa levanta paredes de su pieza.',so:'Diálogo + percusión sobre barro'},
+    {t:'Esc 4 · La memoria del fuego',d:15,pj:'Alfarera Mayor',a:'Historia de transmisión generacional en Uayma, Siijil ti kat.',tl:'Alisado y bruñido. Video proyección opcional: fotos de la visita del 4 oct.',so:''},
+    {t:'Esc 5 · Taller libre + intercambio',d:30,pj:'3 actrices + Virgilio',a:'Público termina su pieza cruda. Alfarera cuenta el origen.',tl:'Intercambio: pieza cruda x pieza original de Virgilio Espadas Xooc.',so:''},
+    {t:'Mediación · Nacido de Barro',d:20,pj:'Virgilio Espadas Xooc',a:'Charla directa con Virgilio: trayectoria, proceso técnico-simbólico, valores comunitarios, importancia de la tierra roja como patrimonio. Preguntas del público.',tl:'Sin materiales. Entrega de artesanía + foto grupal. SEDECULTA: lista de asistencia firmada, foto, video de 1 min.',so:''}
+  ],
+
+  // ——— Necesidades por escena ———
+  need:[
+    {s:'E1',c:'Props',n:'Tierra roja seca',q:'',e:'Por hacer',r:'',o:'Banco Siijil ti kat'},
+    {s:'E1',c:'Props',n:'Ocarina (en vivo)',q:'1',e:'Por hacer',r:'',o:'Asesoría y taller de ocarina y silbatos: $1,500'},
+    {s:'E1',c:'Props',n:'Palo de lluvia',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'E1',c:'Props',n:'Banco o mesa de trabajo + cubeta',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'E1',c:'Público',n:'Barro húmedo para tocar',q:'15 kg',e:'Por hacer',r:'',o:'Propuesta: 45 kg para las 3 funciones'},
+    {s:'E1',c:'Vestuario',n:'Hipil de trabajo · Alfarera Mayor',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'E2',c:'Props',n:'2 figuras de barro grandes',q:'2',e:'Por hacer',r:'',o:'Cobran vida'},
+    {s:'E2',c:'Maquillaje',n:'Cuerpos pintados de barro · kit de maquillaje escénico',q:'3',e:'Por hacer',r:'',o:''},
+    {s:'E2',c:'Público',n:'Una bola de barro por persona',q:'30',e:'Por hacer',r:'',o:''},
+    {s:'E2',c:'Taller',n:'Jícaras grandes',q:'30',e:'Por hacer',r:'',o:''},
+    {s:'E2',c:'Taller',n:'Bases de bejuco (aros) para jícaras',q:'30',e:'Por hacer',r:'',o:''},
+    {s:'E2',c:'Taller',n:'Hojas de maculán',q:'270',e:'Por hacer',r:'',o:'Propuesta: 270 en compra + 15 en ensayo general'},
+    {s:'E2',c:'Taller',n:'Mandiles y trapos',q:'5 + 5',e:'Por hacer',r:'',o:'Ensayo general'},
+    {s:'E2',c:'Taller',n:'Agua y herramientas alfareras',q:'',e:'Por hacer',r:'',o:''},
+    {s:'E2',c:'Sonido',n:'Palo de lluvia en crescendo',q:'',e:'Por hacer',r:'',o:''},
+    {s:'E3',c:'Props',n:'Piezas a medio hacer + jícara',q:'',e:'Por hacer',r:'',o:''},
+    {s:'E3',c:'Props',n:'Celular (utilería de ciudad)',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'E3',c:'Vestuario',n:'Traje sastre formal de 2 piezas · Hija de Ciudad',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'E3',c:'Vestuario',n:'Indumentaria tradicional maya · Hija de Comunidad',q:'1',e:'Por hacer',r:'',o:'Habla maya y español'},
+    {s:'E3',c:'Sonido',n:'Percusión sobre barro + diálogo',q:'',e:'Por hacer',r:'',o:''},
+    {s:'E4',c:'Props',n:'Fotos impresas de la exploración del 4 oct',q:'',e:'Por hacer',r:'',o:'Banco de tierra roja'},
+    {s:'E4',c:'Props',n:'Proyector (opcional)',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'E4',c:'Taller',n:'Herramientas de alisado y bruñido',q:'',e:'Por hacer',r:'',o:''},
+    {s:'E4',c:'Sonido',n:'Ocarina + voz',q:'',e:'Por hacer',r:'',o:''},
+    {s:'E5',c:'Arte',n:'Piezas artesanales originales de Virgilio',q:'100',e:'Por hacer',r:'',o:'Compra a Virgilio el 9 dic. Presupuesto 90 × $50, cronograma 100'},
+    {s:'E5',c:'Arte',n:'Barro (compra a Virgilio)',q:'40 kg',e:'Por hacer',r:'',o:''},
+    {s:'E5',c:'Público',n:'Piezas crudas del público',q:'30',e:'Por hacer',r:'',o:''},
+    {s:'MED',c:'Producción',n:'Charla con Virgilio (sin materiales)',q:'1',e:'Por hacer',r:'',o:'Honorarios por conversatorio: 3 × $1,000'},
+    {s:'MED',c:'Producción',n:'Artesanía para cada espectador + foto grupal',q:'30',e:'Por hacer',r:'',o:''},
+    {s:'MED',c:'SEDECULTA',n:'Lista de asistencia firmada, foto y video de 1 min',q:'1 por función',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Mesas blancas rectangulares',q:'4',e:'Por hacer',r:'',o:'Propuesta: 4. El Celtx decía 6 de 5 pax'},
+    {s:'GEN',c:'Técnica',n:'Sillas',q:'30',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Mesita',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Espacio escénico + espacio tipo camerino',q:'1 + 1',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Enchufes con electricidad + extensiones',q:'4 + 2',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Lavamanos o acceso a grifos',q:'1',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Iluminación: diseño, equipo (5 × $2,000) e iluminador (5 × $500)',q:'',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Técnica',n:'Tramoyista: 2 ensayos generales + 3 funciones',q:'',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Arte',n:'Diseño y elaboración: vestuario 3, utilería 10 piezas, escenografía 1',q:'',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Sonido',n:'Diseño sonoro',q:'',e:'Por hacer',r:'',o:''},
+    {s:'GEN',c:'Sede',n:'Valladolid: Teatro del Ex Telar La Aurora',q:'1',e:'Por hacer',r:'',o:'Carta de intención 30 jul 2026 (Desarrollo Humano). Falta confirmar fecha'},
+    {s:'GEN',c:'Sede',n:'Uayma: palacio municipal',q:'1',e:'Por hacer',r:'',o:'Carta de intención 30 jul 2026 (Dirección de Cultura)'},
+    {s:'GEN',c:'Sede',n:'Mérida · 14-18 dic',q:'1',e:'Por hacer',r:'',o:'Sin sede ni carta'}
+  ],
+
+  // ——— Cronograma ———
+  tasks:[
+    {fa:'Gestión',d:'2026-09-01',a:'Contacto con las direcciones de cultura de Valladolid y Uayma (2 reuniones)',r:'Maricruz',e:'Por hacer',l:''},
+    {fa:'Investigación',d:'2026-09-06',a:'Visita al taller de Virgilio Espadas en Uayma: primer informe de investigación',r:'Maricruz + Virgilio',e:'Por hacer',l:''},
+    {fa:'Dramaturgia',d:'2026-09-09',a:'Reunión de análisis: primer borrador del guion',r:'Maricruz',e:'Por hacer',l:''},
+    {fa:'Investigación',d:'2026-09-13',a:'Visita al banco de tierra roja en Uayma con Virgilio: segundo informe',r:'Maricruz + Virgilio',e:'Por hacer',l:'Permiso de extracción Siijil ti kat'},
+    {fa:'Dramaturgia',d:'2026-09-16',a:'Reunión de análisis: último tratamiento del guion',r:'Maricruz',e:'Por hacer',l:''},
+    {fa:'Investigación',d:'2026-09-20',a:'Visita al taller de Virgilio: presentación del guion y asesoría de barro (guion aprobado)',r:'Maricruz + Virgilio',e:'Por hacer',l:''},
+    {fa:'Diseño',d:'2026-09-23',a:'Reunión creativa: diseño de vestuario, escenografía y utilería',r:'Equipo creativo',e:'Por hacer',l:''},
+    {fa:'Diseño',d:'2026-09-25',a:'Reunión creativa: diseño sonoro e iluminación',r:'Equipo creativo',e:'Por hacer',l:''},
+    {fa:'Ensayos',d:'2026-09-27',a:'Primer ensayo con las tres actrices: lectura, análisis e integración',r:'Elenco',e:'Por hacer',l:''},
+    {fa:'Difusión',d:'2026-09-30',a:'Reunión con el equipo de marketing: estrategia de campaña',r:'Maricruz + MKT',e:'Por hacer',l:''},
+    {fa:'Investigación',d:'2026-10-04',a:'VISITA 1 (9:00, salida Valladolid): exploración artística en el banco de tierra y taller en Uayma, espacios de la alfarera + Don Pedro',r:'Maricruz + Virgilio + 1 actriz',e:'Por hacer',l:'Confirmar con Don Pedro (¿quién es? ¿contacto?)'},
+    {fa:'Ensayos',d:'2026-10-05',a:'Inicio de ensayos: 24 ensayos del montaje (hasta el 30 nov)',r:'Elenco',e:'Por hacer',l:''},
+    {fa:'Producción',d:'2026-10-05',a:'Producción de escenografía, vestuario (3) y utilería (hasta el 31 oct)',r:'Producción',e:'Por hacer',l:''},
+    {fa:'Investigación',d:'2026-10-11',a:'VISITA 2 (9:00): banco Siijil ti kat + primera práctica de barro de las actrices',r:'Virgilio + 3 actrices + Maricruz',e:'Por hacer',l:'Transporte: ¿vehículo propio o renta?'},
+    {fa:'Difusión',d:'2026-10-15',a:'Entrega y revisión del dossier de contenido de marketing',r:'MKT',e:'Por hacer',l:''},
+    {fa:'Producción',d:'2026-10-16',a:'Reunión de requerimientos técnicos en sedes: 4 mesas, 30 sillas, mesita, escena, camerino, 4 enchufes, 2 extensiones, grifo',r:'Producción',e:'Por hacer',l:'Cartas de las sedes: falta confirmar fechas'},
+    {fa:'Difusión',d:'2026-10-16',a:'Producción del contenido de marketing: 8 posts, flyer, sesión de fotos, 4 videos, spot de perifoneo (hasta 16 nov)',r:'MKT',e:'Por hacer',l:''},
+    {fa:'Difusión',d:'2026-11-17',a:'Lanzamiento de la campaña: 8 posts, 10 flyers pegados, 4 videos, 7 h de perifoneo, 4 visitas escolares, 1 entrevista de radio (hasta 10 dic)',r:'MKT',e:'Por hacer',l:''},
+    {fa:'Ensayos',d:'2026-12-01',a:'Ensayos generales: 2 con 5 espectadores (hasta el 5 dic)',r:'Elenco',e:'Por hacer',l:''},
+    {fa:'Compras',d:'2026-12-09',a:'Compra a Virgilio de 100 piezas artesanales y 40 kg de barro; compra de materiales del taller (30 jícaras, 30 aros, 270 hojas de maculán)',r:'Producción',e:'Por hacer',l:''},
+    {fa:'Funciones',d:'2026-12-10',a:'Presentación en Valladolid (Teatro del Ex Telar La Aurora): 1 función, 30 espectadores + mediación',r:'Todo el equipo',e:'Por hacer',l:'Confirmar fecha con Desarrollo Humano'},
+    {fa:'Funciones',d:'2026-12-11',a:'Presentación en Uayma (palacio municipal): 1 función, 30 espectadores + mediación',r:'Todo el equipo',e:'Por hacer',l:'Confirmar fecha con Dirección de Cultura'},
+    {fa:'Funciones',d:'2026-12-14',a:'Presentación en Mérida (14 al 18 dic): 1 función, 30 espectadores + mediación',r:'Todo el equipo',e:'Por hacer',l:'Falta sede y carta de intención'},
+    {fa:'Mediación',d:'',a:'Mediación escolar extra (SEDECULTA pide mínimo 2)',r:'Maricruz',e:'Por hacer',l:'Agendar para cumplir al 100%'},
+    {fa:'Cierre',d:'',a:'Informe final y comprobación (narrativo, fotos, videos, salvaguarda de la tierra roja)',r:'Maricruz',e:'Por hacer',l:'Revisar fecha límite SEDECULTA'}
+  ],
+
+  // ——— Checklist SEDECULTA ———
+  chk:[
+    {r:'4 funciones mínimo',e:'Programadas 3 (Valladolid, Uayma, Mérida) + mediación escolar extra',f:'Definir sede exacta Mérida + cartas de autorización',ok:false},
+    {r:'Mediación Nacido de Barro (mín. 2)',e:'Integrada en cada función',f:'Agregar 1 mediación escolar extra',ok:false},
+    {r:'Portador de saberes',e:'Virgilio Espadas Xooc · Uayma',f:'Carta de colaboración firmada por Virgilio',ok:false},
+    {r:'Registro Red de Agentes Culturales',e:'Maricruz May · 324',f:'Verificar vigencia',ok:false},
+    {r:'Evidencia foto y video',e:'Sesión + tráiler planificados',f:'10 fotos alta + video de mediación 1 min por función',ok:false},
+    {r:'Listas de asistencia',e:'Formato listo',f:'Imprimir 4 listas de 30 pax + bolígrafos',ok:false},
+    {r:'Comprobación fiscal',e:'Presupuesto 112,500',f:'Facturas por rubro con concepto cultural',ok:false},
+    {r:'Difusión',e:'Plan de 1 mes',f:'Guardar capturas de pauta, perifoneo, carteles',ok:false},
+    {r:'Informe final',e:'Pendiente',f:'Narrativo + aprendizajes + salvaguarda tierra roja',ok:false},
+    {r:'Permisos',e:'Parcial',f:'Carta permiso banco Siijil ti kat + carta comisariado',ok:false},
+    {r:'Logística: transporte',e:'Visitas y funciones programadas',f:'¿Vehículo propio o renta?',ok:false}
+  ],
+
+  // ——— Compromisos de la propuesta ———
+  comp:[
+    {n:'Contacto con direcciones de cultura de Valladolid y Uayma',m:'2 reuniones',f:'1 sep',ok:false},
+    {n:'Exploración artística en el banco de tierra y taller en Uayma',m:'1 ensayo exploratorio',f:'4 oct',ok:false},
+    {n:'Ensayos de la obra',m:'24 ensayos',f:'5 oct-30 nov',ok:false},
+    {n:'Escenografía, vestuario y utilería',m:'3 vestuarios + piezas finales',f:'5-31 oct',ok:false},
+    {n:'Reunión de requerimientos técnicos en sedes',m:'1',f:'16 oct',ok:false},
+    {n:'Contenido de marketing',m:'8 posts, 1 flyer (10 impresiones), 1 sesión de fotos, 4 videos, 1 spot de perifoneo',f:'16 oct-16 nov',ok:false},
+    {n:'Ensayos generales',m:'2, con 5 espectadores',f:'1-5 dic',ok:false},
+    {n:'Campaña de publicidad',m:'8 posts, 10 flyers pegados, 4 videos, 7 h de perifoneo, 4 visitas escolares, 1 entrevista de radio',f:'17 nov-10 dic',ok:false},
+    {n:'Compra de artesanías y barro a Virgilio',m:'100 piezas + 40 kg',f:'9 dic',ok:false},
+    {n:'Compra de materiales del taller',m:'30 jícaras, 30 aros, 270 hojas de maculán',f:'9 dic',ok:false},
+    {n:'Función Valladolid',m:'30 espectadores + mediación',f:'10 dic',ok:false},
+    {n:'Función Uayma',m:'30 espectadores + mediación',f:'11 dic',ok:false},
+    {n:'Función Mérida',m:'30 espectadores + mediación',f:'14-18 dic',ok:false}
+  ],
+
+  // ——— Plan de medios ———
+  med:[
+    {n:'Teaser «Manos en barro» (5 s)',c:'TikTok / Reels',f:'Sem 2',e:'Por hacer'},
+    {n:'Carrusel ¿Quién es Virgilio Espadas? + banco de tierra roja',c:'IG / FB',f:'Sem 3',e:'Por hacer'},
+    {n:'Reel práctica actrices 11 oct (BTS)',c:'IG / TikTok',f:'Sem 3',e:'Por hacer'},
+    {n:'Tráiler oficial 60 s',c:'IG / FB / TikTok / YouTube',f:'19 oct',e:'Por hacer'},
+    {n:'3 posts informativos: funciones, intercambio, mediación',c:'IG / FB',f:'Sem 5',e:'Por hacer'},
+    {n:'4 reels: dos mundos, vestuarios, ocarina, testimonio',c:'Reels',f:'Sem 5-6',e:'Por hacer'},
+    {n:'16 historias: cuenta regresiva, detrás, Q&A Virgilio',c:'Historias',f:'Diario',e:'Por hacer'},
+    {n:'Perifoneo Uayma 2 días + 30 carteles A3',c:'Offline',f:'21-24 oct',e:'Por hacer'},
+    {n:'Entrevista radio (actrices + Virgilio)',c:'Radio Valladolid',f:'23 oct',e:'Por hacer'},
+    {n:'Cobertura: live + 120 fotos mín. de 4 funciones',c:'IG Live / álbum',f:'25 oct-1 nov',e:'Por hacer'}
+  ],
+
+  // ——— Arte ———
+  arte:[
+    {n:'Tierra roja Uayma (40 kg)',s:'Esc 1, 4',q:'40 kg',e:'Por hacer',r:'Virgilio',o:'Banco Siijil ti kat; permiso de extracción'},
+    {n:'Barro preparado + 30 bolas para público',s:'Esc 1, 2',q:'30',e:'Por hacer',r:'Virgilio',o:''},
+    {n:'Piezas extra de respaldo para el público',s:'Esc 5',q:'30',e:'Por hacer',r:'Virgilio',o:''},
+    {n:'Piezas artesanales originales de Virgilio (intercambio)',s:'Esc 5',q:'100',e:'Por hacer',r:'Virgilio',o:'Incluidas en honorarios / compra 9 dic'},
+    {n:'2 figuras de barro grandes',s:'Esc 2',q:'2',e:'Por hacer',r:'Elenco',o:'Cobran vida'},
+    {n:'30 tablas MDF para piezas',s:'Esc 2',q:'30',e:'Por hacer',r:'Producción',o:''},
+    {n:'Fotos impresas visita 4 oct',s:'Esc 4',q:'',e:'Por hacer',r:'Maricruz',o:'Proyección opcional'}
+  ],
+
+  // ——— Props ———
+  props:[
+    {n:'Tierra roja seca',s:'Esc 1',q:'',e:'Por hacer',r:'',o:'Público toca seca vs húmeda'},
+    {n:'Ocarina',s:'Esc 1, 4',q:'',e:'Por hacer',r:'',o:'En vivo'},
+    {n:'Palo de lluvia',s:'Esc 1, 2',q:'',e:'Por hacer',r:'',o:'Crescendo en esc 2'},
+    {n:'Banco / mesa de trabajo + cubeta',s:'Esc 1',q:'1',e:'Por hacer',r:'',o:''},
+    {n:'Sillas',s:'Esc 1',q:'30',e:'Por hacer',r:'',o:''},
+    {n:'Mesas (5 pax)',s:'Esc 1',q:'6',e:'Por hacer',r:'',o:''},
+    {n:'Manteles de plástico',s:'Esc 1',q:'6',e:'Por hacer',r:'',o:''},
+    {n:'Herramientas alfareras',s:'Esc 2',q:'',e:'Por hacer',r:'',o:'Pellizco, bruñido'},
+    {n:'Torno',s:'Esc 2',q:'1',e:'Por hacer',r:'',o:'Opcional'},
+    {n:'Agua y trapos',s:'Esc 2',q:'',e:'Por hacer',r:'',o:''},
+    {n:'Piezas a medio hacer + jícara',s:'Esc 3',q:'',e:'Por hacer',r:'',o:''},
+    {n:'Celular (utilería de ciudad)',s:'Esc 3',q:'1',e:'Por hacer',r:'',o:''},
+    {n:'Proyector',s:'Esc 4',q:'1',e:'Por hacer',r:'',o:'Opcional'},
+    {n:'Bocina pequeña + cámara',s:'Esc 5 / Mediación',q:'',e:'Por hacer',r:'',o:''},
+    {n:'Listas de asistencia firmadas',s:'Mediación',q:'4',e:'Por hacer',r:'Maricruz',o:'Requisito SEDECULTA'}
+  ],
+
+  // ——— Vestuario ———
+  vest:[
+    {n:'Hipil de trabajo',s:'Alfarera Mayor (50s)',q:'1',e:'Por hacer',r:'',o:'Esc 1'},
+    {n:'Hipil diario / vestuario tradicional maya',s:'Hija de Comunidad (20s)',q:'1',e:'Por hacer',r:'',o:'Habla maya y español'},
+    {n:'Traje sastre formal 2 piezas',s:'Hija de Ciudad (20s)',q:'1',e:'Por hacer',r:'',o:'Desconectada del origen'},
+    {n:'Guayabera',s:'Virgilio · Mediación',q:'1',e:'Por hacer',r:'',o:''},
+    {n:'Maquillaje: cuerpos pintados de barro',s:'Esc 2 · Nacimiento',q:'',e:'Por hacer',r:'',o:'Probar con barro real el 11 oct'}
+  ],
+
+  // ——— Presupuesto ———
+  pres:[
+    {g:'Transporte y logística',c:'Transporte redondo de 2 actrices: reunión con cultura en Valladolid',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Transporte y logística',c:'Transporte redondo de 2 actrices: reunión con cultura en Uayma',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Transporte y logística',c:'Transporte redondo a Uayma de 5 integrantes (visitas, reunión técnica, ensayo general y función)',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Transporte y logística',c:'Transporte redondo en Valladolid de 4 integrantes (reunión técnica, ensayo general, función)',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Transporte y logística',c:'Transporte de utilería y escenografía en Valladolid (ensayo general y función)',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Transporte y logística',c:'Transporte de utilería y escenografía de Valladolid a Uayma',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Transporte y logística',c:'Alimentación de 5 integrantes en visitas y función en Uayma',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Documentalista y fotógrafo de investigación en Uayma',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Ensayos de la obra: 3 actrices',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Iluminador (2 ensayos generales y 3 funciones)',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Tramoyista en ensayos generales',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Tramoyista por función',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'3 actrices por función',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Asesoramiento de práctica alfarera: Virgilio Espadas',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Asesoría y taller de ocarina y silbatos tradicionales',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Honorarios',c:'Honorarios de Virgilio por conversatorio',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Diseño y elaboración de vestuario',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Diseño y elaboración de piezas de utilería',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Diseño y elaboración de escenografía',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Diseño de iluminación',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Diseño sonoro',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Kit de maquillaje escénico',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Producción artística y técnica',c:'Renta de equipo de iluminación (ensayos generales y funciones)',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Materiales del taller',c:'Barro húmedo para la práctica del espectador en 3 funciones (kg)',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Materiales del taller',c:'Piezas artesanales de barro producidas por Virgilio Espadas',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Materiales del taller',c:'Jícaras grandes',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Materiales del taller',c:'Bases de bejuco para jícaras',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Materiales del taller',c:'Hojas de maculán',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Difusión',c:'Paquete de publicidad con empresa de marketing',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Difusión',c:'Flyer tabloide impreso',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Difusión',c:'Banner impreso en lona con araña',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Difusión',c:'Servicio de perifoneo en Uayma por hora',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Difusión',c:'Entrevista de radio en Valladolid',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'},
+    {g:'Difusión',c:'Papelería, impresiones e imprevistos',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'}
+  ],
+
+  // ——— Flujo de efectivo (vacío al inicio) ———
+  flujo:[],
+
+  // ——— Directorio ———
+  dir:[
+    {n:'Maricruz Saraí May Álvarez',r:'Dirección, dramaturgia y producción general',o:'Colectivo Artístico Drama',t:'9991643484',m:'contactomaricruzmay@gmail.com',x:'Valladolid. Registro en Red de Agentes Culturales'},
+    {n:'José Virgilio Espadas Xooc',r:'Portador de saberes, alfarero',o:'Uayma',t:'',m:'',x:'Carta de intención firmada el 28 jul 2026'},
+    {n:'Mtra. Teresita Aguilar Ballinas',r:'Directora de Desarrollo Humano',o:'H. Ayuntamiento de Valladolid',t:'',m:'',x:'Gestiona el Teatro del Ex Telar La Aurora. Carta del 30 jul 2026'},
+    {n:'Lic. Wendy Xooc Tuz',r:'Directora de Cultura',o:'H. Ayuntamiento de Uayma',t:'',m:'',x:'Palacio Municipal, calle 19 x 20 y 20 A. Carta del 30 jul 2026'},
+    {n:'SEDECULTA · Artes Escénicas',r:'Convocatoria Arte en comunidad',o:'Secretaría de la Cultura y las Artes de Yucatán',t:'(999) 942 3800 ext. 54029',m:'escenicas.yucatan@yucatan.gob.mx',x:'Lunes a viernes, 9:00 a 14:00'},
+    {n:'Don Pedro',r:'Visita 1 (4 oct) e invitado a la función de cierre',o:'',t:'',m:'',x:'Falta nombre completo y contacto'},
+    {n:'Actriz 1 · Hija de Comunidad',r:'',o:'',t:'',m:'',x:''},
+    {n:'Actriz 2 · Hija de Ciudad',r:'',o:'',t:'',m:'',x:''},
+    {n:'Actriz 3 · Alfarera Mayor',r:'',o:'',t:'',m:'',x:''},
+    {n:'Community manager / diseño',r:'Campaña de difusión',o:'',t:'',m:'',x:'Redes: drama_colectivoartistico'},
+    {n:'Radio Valladolid',r:'Entrevista con actrices + Virgilio',o:'',t:'',m:'',x:'Programada el 23 oct (plan de medios)'}
+  ],
+
+  // ——— Eventos adicionales del calendario ———
+  cal:[],
+
+  // ——— Links por área (documentos) ———
+  lk_pan:[], lk_gui:[], lk_prod:[], lk_cal:[], lk_arte:[], lk_props:[], lk_vest:[], lk_pres:[], lk_dir:[], lk_doc:[],
+  lf_pan:[], lf_gui:[], lf_prod:[], lf_cal:[], lf_arte:[], lf_props:[], lf_vest:[], lf_pres:[], lf_dir:[], lf_doc:[]
+};
+
+// ——— Estado y helpers ———
+let S=JSON.parse(JSON.stringify(D)), tab='pan', tm=null;
+let cy=new Date().getFullYear(), cm=new Date().getMonth();
+const STORAGE_KEY='hijas-del-barro-v3';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $m=n=>'$'+Math.round(n).toLocaleString('es-MX');
+const addD=(iso,n)=>{const t=new Date(iso+'T00:00:00Z');t.setUTCDate(t.getUTCDate()+n);return t.toISOString().slice(0,10)};
+const fmt=iso=>iso?new Date(iso+'T00:00:00Z').toLocaleDateString('es-MX',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'}):'sin fecha';
+const sync=t=>{$('#sync').textContent=t};
+let _writing=false;
+function save(immediate){
+  clearTimeout(tm);
+  const doSave=()=>{
+    try{
+      _writing=true;
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(S));
+      localStorage.setItem(STORAGE_KEY+'__ping',String(Date.now()));
+      setTimeout(()=>{_writing=false},60);
+      const h=new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      sync('Actualizado · '+h);
+    }catch(e){
+      _writing=false;
+      sync('Error al guardar (¿espacio lleno?)');
+    }
+  };
+  if(immediate){doSave();return}
+  sync('Guardando…');
+  tm=setTimeout(doSave,150);
+}
+function load(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(!raw)return false;
+    const sv=JSON.parse(raw);
+    S={...JSON.parse(JSON.stringify(D)),...sv};
+    return true;
+  }catch(e){return false}
+}
+// Sincroniza entre pestañas del mismo navegador en tiempo real
+window.addEventListener('storage',e=>{
+  if(_writing)return;
+  if(e.key!==STORAGE_KEY&&e.key!==STORAGE_KEY+'__ping')return;
+  if(!load())return;
+  const ae=document.activeElement;
+  if(ae&&/INPUT|SELECT|TEXTAREA/.test(ae.tagName)){calc();return}
+  render();
+  sync('Sincronizado entre pestañas ✓');
+});
+
+const DR={dir:1,pres:1};
+let DRG=null;
+// Historial para deshacer (presupuesto y directorio)
+const HIST_MAX=30;
+let hist=[];
+function pushHist(){
+  try{
+    hist.push(JSON.stringify({pres:S.pres,dir:S.dir,rubros:S.rubros,flujo:S.flujo}));
+    if(hist.length>HIST_MAX)hist.shift();
+    updateUndoBtn();
+  }catch(_){}
+}
+function undo(){
+  if(!hist.length){sync('No hay cambios que deshacer');return}
+  try{
+    const prev=JSON.parse(hist.pop());
+    S.pres=prev.pres;S.dir=prev.dir;S.rubros=prev.rubros;S.flujo=prev.flujo||S.flujo;
+    save(true);render();
+    sync('Deshecho · quedan '+hist.length+' pasos');
+    updateUndoBtn();
+  }catch(e){sync('No se pudo deshacer')}
+}
+function updateUndoBtn(){
+  const b=$('#undo');
+  if(b){b.disabled=!hist.length;b.title=hist.length?'Deshacer último cambio ('+hist.length+')':'Nada que deshacer'}
+}
+function restorePresOriginal(){
+  if(!confirm('¿Restaurar el presupuesto a la versión original del proyecto? Se perderán los cambios actuales del presupuesto (puedes deshacer después).'))return;
+  pushHist();
+  S.pres=JSON.parse(JSON.stringify(D.pres));
+  S.rubros=JSON.parse(JSON.stringify(D.rubros));
+  save(true);render();
+  sync('Presupuesto restaurado a la versión original');
+}
+function mv(k,a,b){
+  const L=S[k];if(b<0||b>=L.length||a==b)return;
+  if(k=='pres'||k=='dir')pushHist();
+  const tg=L[b].g,[x]=L.splice(a,1);
+  if(k=='pres'&&tg)x.g=tg;
+  L.splice(b,0,x);save();render()
+}
+const add=(k,t)=>`<button class="g" data-add="${k}">+ ${t}</button>`;
+const NEW={
+  tasks:{fa:'',d:'',a:'Nueva actividad',r:'',e:'Por hacer',l:''},
+  chk:{r:'Nuevo requisito',e:'',f:'',ok:false},
+  med:{n:'Nueva pieza',c:'',f:'',e:'Por hacer'},
+  arte:{n:'Nuevo ítem',s:'',q:'',e:'Por hacer',r:'',o:''},
+  props:{n:'Nuevo ítem',s:'',q:'',e:'Por hacer',r:'',o:''},
+  vest:{n:'Nuevo ítem',s:'',q:'',e:'Por hacer',r:'',o:''},
+  flujo:{d:'',t:'Gasto',q:'',c:'',x:'',m:0},
+  dir:{n:'Nuevo contacto',r:'',o:'',t:'',m:'',x:''},
+  cal:{d:'',n:'Nuevo evento',e:'Por hacer'},
+  gui:{t:'Nueva escena',d:0,pj:'',a:'',tl:'',so:''},
+  pers:{n:'Personaje',e:'',d:''},
+  need:{s:'GEN',c:'Props',n:'Nueva necesidad',q:'',e:'Por hacer',r:'',o:''},
+  comp:{n:'Nuevo compromiso',m:'',f:'',ok:false},
+  pres:{g:'Honorarios',c:'Nuevo concepto',n:0,p:0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'}
+};
+TABS.forEach(t=>NEW['lk_'+t[0]]={t:'Documento',u:''});
+
+const IT=[{h:'Ítem',k:'n',w:'28%'},{h:'Escena / personaje',k:'s',w:'16%'},{h:'Cant.',k:'q',w:'7%'},{h:'Estado',k:'e',w:'130px',t:'s'},{h:'Responsable',k:'r',w:'14%'},{h:'Notas',k:'o'}];
+const prog=a=>a.length?Math.round(a.filter(x=>x.e=='Listo'||x.ok).length/a.length*100):0;
+const tot=()=>{let p=0,x=0;S.pres.forEach(r=>{p+=(+r.n||0)*(+r.p||0);x+=(+r.x||0)});return{p,x}};
+const comprobados=()=>S.pres.filter(r=>(+r.x||0)>0&&r.d&&String(r.pdf||'').trim()&&String(r.xml||'').trim()).length;
+function sec(id,t,body,extra=''){return `<div class="card"><div class="sec"><h3>${t}</h3><div class="shift">${extra}</div></div>${body}</div>`}
+const rubros=()=>{S.pres.forEach(r=>{if(!S.rubros.includes(r.g))S.rubros.push(r.g)});return S.rubros};
+
+function tbl(k,cols,rows=S[k],ix){
+  return '<div class="wrap"><table><tr>'+(DR[k]?'<th style="width:90px"></th>':'')+cols.map(c=>`<th style="width:${c.w||'auto'}">${c.h}</th>`).join('')+(k=='pres'?'<th class="r">Subtotal</th>':k=='flujo'?'<th class="r">Saldo</th>':'')+'<th></th></tr>'+
+  rows.map((r,j)=>{const i=ix?ix[j]:j;return '<tr data-row="'+k+':'+i+'">'+(DR[k]?`<td style="white-space:nowrap"><span class="dg" draggable="true" data-drag="${k}:${i}" title="Arrastra para ordenar">⋮⋮</span><button class="x" data-mv="${k}:${i}:-1" title="Subir">↑</button><button class="x" data-mv="${k}:${i}:1" title="Bajar">↓</button></td>`:'')+cols.map(c=>{const v=r[c.k];let h;
+  if(c.t=='s')h=`<select data-a="${k}" data-i="${i}" data-k="${c.k}" class="st-${String(v).replace(/ /g,'')}">${EST.map(o=>`<option${o==v?' selected':''}>${o}</option>`).join('')}</select>`;
+  else if(c.t=='c')h=`<input type="checkbox" data-a="${k}" data-i="${i}" data-k="${c.k}"${v?' checked':''}>`;
+  else if(c.t=='x')h=`<textarea rows="${c.rows||4}" data-a="${k}" data-i="${i}" data-k="${c.k}">${esc(v)}</textarea>`;
+  else if(c.t=='o'){const os=typeof c.o=='function'?c.o():c.o;h=`<select data-a="${k}" data-i="${i}" data-k="${c.k}">${os.map(o=>`<option value="${esc(o)}"${o==v?' selected':''}>${esc(o)||'—'}</option>`).join('')}</select>`}
+  else if(c.t=='r')h=`<span style="display:block;padding:5px 6px">${esc(v)}</span>`;
+  else if(c.t=='f')h=`<button class="g" data-ver="${k}:${i}">Ver</button> <button class="g" data-dl="${k}:${i}">Descargar ↓</button>`;
+  else if(c.t=='l'){const u=String(r.u||'').trim();h=/^https?:\/\//i.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Abrir ↗</a>`:''}
+  else if(c.t=='url'){const u=String(v||'').trim();const ok=/^https?:\/\//i.test(u);h=`<div style="display:flex;gap:4px;align-items:center"><input type="text" data-a="${k}" data-i="${i}" data-k="${c.k}" value="${esc(v)}" placeholder="${c.ph||'https://…'}" style="flex:1;min-width:80px">${ok?`<a class="g" href="${esc(u)}" target="_blank" rel="noopener noreferrer" style="padding:4px 6px;text-decoration:none;white-space:nowrap">↗</a>`:''}</div>`}
+  else if(c.t=='n')h=`<input type="number" step="any" class="r" data-a="${k}" data-i="${i}" data-k="${c.k}" data-n="1" value="${v}">`;
+  else if(c.t!='d'&&!c.l)h=`<textarea rows="1" data-a="${k}" data-i="${i}" data-k="${c.k}">${esc(v)}</textarea>`;
+  else h=`<input type="${c.t=='d'?'date':'text'}" data-a="${k}" data-i="${i}" data-k="${c.k}" value="${esc(v)}"${c.l?' list="'+c.l+'"':''}>`;
+  return '<td>'+h+'</td>'}).join('')+(k=='pres'?`<td class="r" id="s${i}"></td>`:k=='flujo'?`<td class="r" id="f${i}"></td>`:'')+`<td><button class="x" data-del="${k}:${i}" title="Quitar">✕</button></td></tr>`}).join('')+'</table></div>';
+}
+
+function view(){
+  if(tab=='doc')return '<div class="card"><p style="margin:0">Aquí viven todos los documentos del proyecto, ordenados por área. Pega un link de Google Drive o sube un PDF o imagen para descargarlo después.</p></div>'+TABS.filter(t=>t[0]!='doc').map(t=>lk(t[0],t[1])).join('');
+
+  if(tab=='dir')return sec('d','Directorio de contactos',
+    tbl('dir',[{h:'Nombre',k:'n',w:'18%'},{h:'Rol',k:'r',w:'18%'},{h:'Organización',k:'o',w:'16%'},{h:'Teléfono',k:'t',w:'12%'},{h:'Correo',k:'m',w:'17%'},{h:'Notas',k:'x'}])+
+    `<p class="sub" style="margin-top:8px">Arrastra ⋮⋮ para reordenar, o usa ↑ ↓.</p>`,
+    add('dir','Contacto')+' <button class="g" data-sort="dir:n">Ordenar A–Z</button>');
+
+  if(tab=='cal'){
+    const ev={},put=(d,n,e,a)=>{if(d)(ev[d]=ev[d]||[]).push({n,e,a})};
+    S.tasks.forEach(t=>put(t.d,t.a.length>46?t.a.slice(0,44)+'…':t.a,t.e,t.a));
+    S.cal.forEach(c=>put(c.d,c.n,c.e,c.n));
+    const first=new Date(Date.UTC(cy,cm,1)),off=(first.getUTCDay()+6)%7,nd=new Date(Date.UTC(cy,cm+1,0)).getUTCDate(),hoy=new Date().toISOString().slice(0,10);
+    let cells='';
+    for(let i=0;i<off;i++)cells+='<div class="dc o"></div>';
+    for(let d=1;d<=nd;d++){
+      const iso=`${cy}-${String(cm+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      cells+=`<div class="dc${iso==hoy?' hoy':''}"><b>${d}</b>`+(ev[iso]||[]).map(x=>`<div class="ch st-${x.e.replace(/ /g,'')}" title="${esc(x.a)}">${esc(x.n)}</div>`).join('')+'</div>';
+    }
+    const mes=first.toLocaleDateString('es-MX',{month:'long',year:'numeric',timeZone:'UTC'}),sin=S.tasks.filter(t=>!t.d);
+    return `<div class="card"><div class="sec"><div class="shift"><button class="g" data-nav="-1">←</button><h3 style="min-width:170px;text-align:center;text-transform:capitalize">${mes}</h3><button class="g" data-nav="1">→</button><button class="g" data-nav="hoy">Hoy</button></div><span class="pill">Borde: <b style="color:var(--bad)">■</b> por hacer · <b style="color:var(--warn)">■</b> en proceso · <b style="color:var(--ok)">■</b> listo</span></div><div class="wrap"><div class="cg">${['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].map(x=>`<div class="dh">${x}</div>`).join('')}${cells}</div></div>${sin.length?'<p><b>Sin fecha:</b> '+sin.map(t=>esc(t.a.slice(0,60))).join(' · ')+'</p>':''}</div>`+sec('ce','Eventos adicionales',tbl('cal',[{h:'Fecha',k:'d',t:'d',w:'160px'},{h:'Evento',k:'n'},{h:'Estado',k:'e',t:'s',w:'130px'}])+add('cal','Evento'),'<span class="pill">Las actividades del Cronograma aparecen solas</span>');
+  }
+
+  if(tab=='gui'){
+    const m=S.gui.reduce((a,x)=>a+(+x.d||0),0);
+    return `<div class="card"><h3>Las hijas del barro · escaleta</h3><p style="margin:6px 0">Teatro-taller inmersivo · 3 actrices · 30 personas de 14+ años · <b>${m} min</b> con mediación</p><p style="margin:0">Una mujer alfarera, ante la amenaza de extinción de la tierra roja, decide crear a dos mujeres de barro para salvaguardar su alfarería tradicional.</p></div>`+
+      sec('pe','Personajes',tbl('pers',[{h:'Personaje',k:'n',w:'26%'},{h:'Edad',k:'e',w:'80px'},{h:'Descripción',k:'d'}])+add('pers','Personaje'))+
+      sec('es','Escenas',tbl('gui',[{h:'Escena',k:'t',w:'13%',t:'x'},{h:'Min',k:'d',w:'60px',t:'n'},{h:'Personajes',k:'pj',w:'11%',t:'x'},{h:'Acción',k:'a',w:'27%',t:'x'},{h:'Taller integrado',k:'tl',w:'27%',t:'x'},{h:'Sonido',k:'so',t:'x'}])+add('gui','Escena'))+
+      sec('ne','Necesidades por escena',tbl('need',[{h:'Escena',k:'s',w:'70px'},{h:'Categoría',k:'c',w:'12%'},{h:'Necesidad',k:'n',w:'28%'},{h:'Cant.',k:'q',w:'10%'},{h:'Estado',k:'e',w:'130px',t:'s'},{h:'Responsable',k:'r',w:'12%'},{h:'Notas',k:'o'}])+add('need','Necesidad'));
+  }
+
+  if(tab=='pan'){
+    const{p,x}=tot(),hoy=new Date().toISOString().slice(0,10);
+    const fn=S.tasks.filter(t=>t.fa=='Funciones'&&t.d&&t.d>=hoy).sort((a,b)=>a.d<b.d?-1:1)[0];
+    const dias=fn?Math.round((new Date(fn.d+'T00:00:00Z')-new Date(hoy+'T00:00:00Z'))/864e5):null;
+    const bar=(l,v)=>`<div><div class="lbl">${l} · ${v}%</div><div class="bg"><i style="width:${v}%"></i></div></div>`;
+    const al=[
+      ...S.tasks.filter(t=>t.l&&t.e!='Listo').map(t=>`<div class="al"><b>${fmt(t.d)}</b> · ${esc(t.a.slice(0,60))}<br>${esc(t.l)}</div>`),
+      ...S.chk.filter(c=>!c.ok&&c.f).map(c=>`<div class="al"><b>SEDECULTA</b> · ${esc(c.r)}<br>${esc(c.f)}</div>`),
+      ...S.comp.filter(c=>!c.ok).map(c=>`<div class="al"><b>Compromiso</b> · ${esc(c.n)}<br>${esc(c.m)} · ${esc(c.f)}</div>`)
+    ];
+    return `<div class="grid">
+      <div class="card"><div class="lbl">Próxima función</div><div class="big">${fn?(dias==0?'¡Hoy!':dias+' días'):'—'}</div>${fn?esc(fn.a.split('(')[0].trim())+' · '+fmt(fn.d):'Sin funciones próximas'}</div>
+      <div class="card"><div class="lbl">Presupuesto planeado</div><div class="big">${$m(p)}</div>Tope ${$m(S.cap)} · ${p>S.cap?'<b style="color:var(--bad)">excede '+$m(p-S.cap)+'</b>':'libre '+$m(S.cap-p)}</div>
+      <div class="card"><div class="lbl">Gastado real</div><div class="big">${$m(x)}</div>Saldo vs. planeado ${$m(p-x)}</div>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Avance</h3>
+        ${bar('Cronograma',prog(S.tasks))}
+        ${bar('Checklist SEDECULTA',prog(S.chk))}
+        ${bar('Compromisos propuesta',prog(S.comp))}
+        ${bar('Difusión',prog(S.med))}
+        ${bar('Arte',prog(S.arte))}
+        ${bar('Props y escenografía',prog(S.props))}
+        ${bar('Vestuario y maquillaje',prog(S.vest))}
+        ${bar('Necesidades',prog(S.need))}
+      </div>
+      <div class="card"><h3>Alertas abiertas (${al.length})</h3>${al.join('')||'<p class="sub" style="margin:0">Todo al día</p>'}</div>
+    </div>`;
+  }
+
+  if(tab=='prod'){
+    S.tasks.sort((a,b)=>(a.d||'9')<(b.d||'9')?-1:1);
+    const sh=`<div style="width:100%;color:var(--mut);font-size:13px">¿Cambió una fecha? Elige una actividad y cuántos días moverla (7 = una semana después, -2 = dos días antes). Al pulsar Aplicar se mueven esa actividad y todas las que vienen después.</div><span>Desde la actividad</span><select id="shf" style="max-width:300px">${S.tasks.map((t,i)=>`<option value="${i}">${fmt(t.d)} · ${esc(t.a.slice(0,30))}</option>`).join('')}</select><span>mover</span><input type="number" id="shn" value="7" style="width:70px"><span>días</span><button class="b" id="shb">Aplicar fechas</button>`;
+    return sec('c','Cronograma',tbl('tasks',[{h:'Fase',k:'fa',w:'12%'},{h:'Fecha',k:'d',w:'130px',t:'d'},{h:'Actividad',k:'a',w:'32%',t:'x',rows:2},{h:'Responsable',k:'r',w:'13%'},{h:'Estado',k:'e',w:'130px',t:'s'},{h:'Alerta / pendiente',k:'l',t:'x',rows:2}])+add('tasks','Actividad'),sh)+
+      sec('k','Checklist SEDECULTA y logística',tbl('chk',[{h:'Listo',k:'ok',t:'c',w:'50px'},{h:'Requisito',k:'r',w:'24%'},{h:'Estatus',k:'e',w:'26%'},{h:'Falta / acción',k:'f'}])+add('chk','Requisito'))+
+      sec('co','Compromisos de la propuesta',tbl('comp',[{h:'Listo',k:'ok',t:'c',w:'50px'},{h:'Compromiso',k:'n',w:'36%'},{h:'Meta',k:'m',w:'28%'},{h:'Fecha',k:'f',w:'14%'}])+add('comp','Compromiso'))+
+      sec('m','Plan de medios',tbl('med',[{h:'Pieza',k:'n',w:'40%'},{h:'Canal',k:'c',w:'22%'},{h:'Fecha',k:'f',w:'12%'},{h:'Estado',k:'e',w:'130px',t:'s'}])+add('med','Pieza'));
+  }
+
+  if(tab=='arte')return sec('a','Arte: materiales y piezas',tbl('arte',IT)+add('arte','Ítem'));
+  if(tab=='props')return sec('p','Props y escenografía por escena',tbl('props',IT)+add('props','Ítem'));
+  if(tab=='vest')return sec('v','Vestuario y maquillaje',tbl('vest',IT)+add('vest','Ítem'));
+
+  if(tab=='pres'){
+    S.pres.sort((a,b)=>rubros().indexOf(a.g)-rubros().indexOf(b.g));
+    S.flujo.sort((a,b)=>(a.d||'9')<(b.d||'9')?-1:1);
+    const conc=()=>['',...S.pres.map(r=>r.c)];
+    return `<div class="card"><div class="sec"><h3>Calculadora</h3><div class="shift"><span>Tope SEDECULTA $</span><input type="number" id="cap" value="${S.cap}" style="width:110px"><button class="g" id="restPres" title="Volver al presupuesto original del proyecto">↩ Restaurar original</button></div></div><div class="grid" id="resu"></div></div>`+
+      sec('b','Conceptos presupuestados',`<div class="shift" style="margin-bottom:12px;padding:10px;border:1px dashed var(--line);border-radius:2px"><b>Agregar línea:</b><select id="qg">${rubros().map(o=>`<option>${esc(o)}</option>`).join('')}</select><input id="qc" placeholder="Concepto" style="min-width:200px;flex:1"><input id="qn" type="number" value="1" style="width:70px" title="Cantidad"><input id="qp" type="number" placeholder="Precio unit." style="width:110px"><button class="b" data-qa="1">Agregar</button><span style="margin-left:10px">¿Rubro nuevo?</span><input id="qr" placeholder="Nombre del rubro" style="width:150px"><button class="g" data-rb="1">+ Rubro</button><div style="width:100%;margin-top:6px">Orden de rubros: ${rubros().map((g,i)=>`<span class="pill">${esc(g)} <button class="x" data-rmv="${i}:-1">←</button><button class="x" data-rmv="${i}:1">→</button><button class="x" data-rdel="${i}" title="Borrar rubro">✕</button></span>`).join(' ')}</div></div><p class="sub" style="margin:0 0 8px">Cada línea es presupuesto + gasto + comprobación. Llena <b>Gastado</b>, <b>Fecha</b> y pega los links de <b>PDF</b> y <b>XML</b> de la factura. Arrastra ⋮⋮ para reordenar. <b>↩ Deshacer</b> / <b>↩ Restaurar original</b> arriba.</p>`+tbl('pres',[
+        {h:'Rubro',k:'g',t:'o',o:rubros,w:'140px'},
+        {h:'Concepto',k:'c',t:'x',rows:1,w:'22%'},
+        {h:'Cant.',k:'n',t:'n',w:'60px'},
+        {h:'P. unit.',k:'p',t:'n',w:'90px'},
+        {h:'Gastado $',k:'x',t:'n',w:'90px'},
+        {h:'Fecha factura',k:'d',t:'d',w:'130px'},
+        {h:'Factura PDF',k:'pdf',t:'url',w:'14%',ph:'Link PDF'},
+        {h:'Factura XML',k:'xml',t:'url',w:'14%',ph:'Link XML'}
+      ])+add('pres','Línea en blanco')+`<div style="text-align:right;margin-top:10px;font-size:17px"><b>Total planeado: <span id="tt"></span></b> · <span>Gastado: <span id="tg"></span></span> · <span>Comprobados: <span id="tc"></span></span></div>`)+
+      `<div class="card"><div class="sec"><h3>Flujo y comprobación (desde el presupuesto)</h3></div><div id="fl"></div></div>`+
+      sec('fx','Ingresos (depósitos del apoyo)',tbl('flujo',[{h:'Fecha',k:'d',t:'d',w:'140px'},{h:'Tipo',k:'t',t:'o',o:['Ingreso','Gasto'],w:'100px'},{h:'Quién / origen',k:'q',w:'20%'},{h:'Concepto',k:'c',w:'26%'},{h:'Nota',k:'x'},{h:'Monto',k:'m',t:'n',w:'130px'}])+add('flujo','Movimiento'));
+  }
+}
+
+function calc(){
+  if(tab!='pres')return;
+  const sum=a=>a.reduce((t,f)=>t+(+f.m||0),0);
+  const is=S.flujo.filter(f=>f.t=='Ingreso'),ing=sum(is);
+  S.pres.forEach((r,i)=>{
+    const e=$('#s'+i);
+    if(e){
+      const plan=(+r.n||0)*(+r.p||0), gasto=+r.x||0;
+      e.textContent=$m(plan);
+      e.style.color=gasto>plan&&plan>0?'var(--bad)':'';
+    }
+  });
+  const{p,x}=tot(),by={};
+  const tt=$('#tt'),tg=$('#tg'),tc=$('#tc');
+  if(tt)tt.textContent=$m(p);
+  if(tg)tg.textContent=$m(x);
+  if(tc){const n=comprobados(),totL=S.pres.length;tc.textContent=n+' / '+totL+(totL?` (${Math.round(n/totL*100)}%)`:'')}
+  S.pres.forEach(r=>{by[r.g]=by[r.g]||[0,0];by[r.g][0]+=(+r.n||0)*(+r.p||0);by[r.g][1]+=(+r.x||0)});
+  const resu=$('#resu');
+  if(resu)resu.innerHTML=`<div><div class="lbl">Planeado</div><div class="big">${$m(p)}</div></div><div><div class="lbl">Gastado</div><div class="big">${$m(x)}</div></div><div><div class="lbl">${p>S.cap?'Excede tope':'Disponible vs. tope'}</div><div class="big" style="color:${p>S.cap?'var(--bad)':'var(--ok)'}">${$m(Math.abs(S.cap-p))}</div></div><div><div class="lbl">Comprobados (PDF+XML+fecha)</div><div class="big">${comprobados()}</div><small>de ${S.pres.length} líneas</small></div>`+Object.entries(by).map(([g,v])=>`<div><div class="lbl">${esc(g)}</div><b>${$m(v[0])}</b> <span class="pill">${p?Math.round(v[0]/p*100):0}%</span><br><small>gastado ${$m(v[1])}</small></div>`).join('');
+  let acc=0;S.flujo.forEach((f,i)=>{acc+=(f.t=='Ingreso'?1:-1)*(+f.m||0);const e=$('#f'+i);if(e){e.textContent=$m(acc);e.style.color=acc<0?'var(--bad)':''}});
+  // Flujo mensual desde presupuesto (gastos) + ingresos
+  const mk=d=>d?String(d).slice(0,7):'Sin fecha';
+  const mi={},mg={};
+  is.forEach(f=>{const k=mk(f.d);mi[k]=(mi[k]||0)+(+f.m||0)});
+  S.pres.forEach(r=>{if(!(+r.x))return;const k=mk(r.d);mg[k]=(mg[k]||0)+(+r.x||0)});
+  const ms=[...new Set([...Object.keys(mi),...Object.keys(mg)])].sort();
+  const mn=k=>k=='Sin fecha'?k:new Date(k+'-01T00:00:00Z').toLocaleDateString('es-MX',{month:'long',year:'numeric',timeZone:'UTC'});
+  let ac=0;
+  const pendientes=S.pres.filter(r=>(+r.x||0)>0&&!(r.d&&String(r.pdf||'').trim()&&String(r.xml||'').trim()));
+  const fl=$('#fl');
+  if(fl)fl.innerHTML=`<div class="grid"><div><div class="lbl">Ingresos registrados</div><div class="big">${$m(ing)}</div></div><div><div class="lbl">Gastos (presupuesto)</div><div class="big">${$m(x)}</div></div><div><div class="lbl">Saldo (ingresos − gastos)</div><div class="big" style="color:${ing-x<0?'var(--bad)':'#000'}">${$m(ing-x)}</div></div><div><div class="lbl">Por gastar del planeado</div><div class="big">${$m(p-x)}</div></div></div>
+  <div class="grid" style="margin-top:14px"><div class="wrap"><table style="min-width:0"><tr><th>Mes</th><th class="r">Ingresos</th><th class="r">Gastos</th><th class="r">Saldo acum.</th></tr>${ms.map(k=>{ac+=(mi[k]||0)-(mg[k]||0);return `<tr><td style="text-transform:capitalize">${mn(k)}</td><td class="r">${$m(mi[k]||0)}</td><td class="r">${$m(mg[k]||0)}</td><td class="r" style="color:${ac<0?'var(--bad)':''}">${$m(ac)}</td></tr>`}).join('')||'<tr><td colspan="4">Sin movimientos aún</td></tr>'}</table></div>
+  <div class="wrap"><table style="min-width:0"><tr><th>Pendientes de comprobar</th><th class="r">Gastado</th></tr>${pendientes.map(r=>`<tr><td>${esc(r.c)}${r.d?' · '+esc(r.d):' · <span style="color:var(--bad)">sin fecha</span>'}${!String(r.pdf||'').trim()?' · <span style="color:var(--bad)">sin PDF</span>':''}${!String(r.xml||'').trim()?' · <span style="color:var(--bad)">sin XML</span>':''}</td><td class="r">${$m(+r.x||0)}</td></tr>`).join('')||'<tr><td colspan="2">Todo lo gastado tiene fecha + PDF + XML ✓</td></tr>'}</table></div></div>
+  <p class="sub" style="margin-top:10px">Los gastos salen de la columna <b>Gastado $</b> de cada concepto. Un gasto está <b>comprobado</b> cuando tiene fecha, link PDF y link XML.</p>`;
+}
+
+const fit=()=>document.querySelectorAll('textarea').forEach(e=>{e.style.height='auto';e.style.height=(e.scrollHeight+2)+'px'});
+function applyField(t){
+  if(!t.dataset||!t.dataset.k)return false;
+  const r=S[t.dataset.a]&&S[t.dataset.a][t.dataset.i];
+  if(!r)return false;
+  r[t.dataset.k]=t.type=='checkbox'?t.checked:t.dataset.n?(parseFloat(t.value)||0):t.value;
+  if(t.tagName=='SELECT'&&t.dataset.k=='e')t.className='st-'+t.value.replace(/ /g,'');
+  if(((t.dataset.a.startsWith('lk_')&&t.dataset.k=='u')||t.dataset.k=='pdf'||t.dataset.k=='xml')&&t.value.trim()&&!/^https?:\/\//i.test(t.value.trim())){
+    r[t.dataset.k]='https://'+t.value.trim();
+    t.value=r[t.dataset.k];
+  }
+  return true;
+}
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.tagName=='TEXTAREA'){t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px'}
+  if(t.id=='cap'){S.cap=+t.value||0;save();return}
+  if(applyField(t)){save();calc()}
+});
+addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit);
+
+const lk=(a,nm)=>{
+  return sec('lk',esc(nm),
+    tbl('lk_'+a,[{h:'Link de Google Drive: nombre',k:'t',w:'30%'},{h:'Pega aquí el link',k:'u'},{h:'',k:'u',t:'l',w:'90px'}])+
+    `<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">`+add('lk_'+a,'Link de Drive')+`</div>
+    <p class="sub" style="margin-top:8px">Pega enlaces de Drive, Dropbox, etc. Los cambios se guardan en este navegador.</p>`);
+}
+
+function render(){
+  $('#nav').innerHTML=TABS.map(t=>`<button data-t="${t[0]}" class="${t[0]==tab?'on':''}">${t[1]}</button>`).join('');
+  $('#m').innerHTML=view();
+  calc();
+  fit();
+  updateUndoBtn();
+}
+
+// Eventos
+document.addEventListener('dragstart',e=>{const d=e.target.dataset&&e.target.dataset.drag;if(d){DRG=d;e.dataTransfer.setData('text/plain',d);e.dataTransfer.effectAllowed='move'}});
+document.addEventListener('dragover',e=>{const tr=e.target.closest&&e.target.closest('tr[data-row]');if(DRG&&tr&&tr.dataset.row.split(':')[0]==DRG.split(':')[0]){e.preventDefault();document.querySelectorAll('tr[data-row]').forEach(r=>r.style.outline='');tr.style.outline='2px solid var(--acc)'}});
+document.addEventListener('drop',e=>{const tr=e.target.closest&&e.target.closest('tr[data-row]');if(!DRG||!tr)return;e.preventDefault();const[k,i]=DRG.split(':'),[k2,j]=tr.dataset.row.split(':');DRG=null;if(k==k2)mv(k,+i,+j)});
+document.addEventListener('dragend',()=>{DRG=null;document.querySelectorAll('tr[data-row]').forEach(r=>r.style.outline='')});
+
+document.addEventListener('click',e=>{
+  const t=e.target;
+  if(t.dataset.t){tab=t.dataset.t;render()}
+  if(t.dataset.nav){if(t.dataset.nav=='hoy'){cy=new Date().getFullYear();cm=new Date().getMonth()}else{cm+=+t.dataset.nav;if(cm<0){cm=11;cy--}if(cm>11){cm=0;cy++}}render()}
+  if(t.dataset.mv){const[k,i,d]=t.dataset.mv.split(':');mv(k,+i,+i+ +d)}
+  if(t.dataset.sort){const[k,f]=t.dataset.sort.split(':');if(k==='dir'||k==='pres')pushHist();S[k].sort((a,b)=>String(a[f]).localeCompare(String(b[f]),'es'));save();render()}
+  if(t.dataset.rmv){const[i,d]=t.dataset.rmv.split(':').map(Number),j=i+d;if(j>=0&&j<S.rubros.length){[S.rubros[i],S.rubros[j]]=[S.rubros[j],S.rubros[i]];save();render()}}
+  if(t.dataset.rdel){const i=+t.dataset.rdel,g=S.rubros[i];if(S.pres.some(r=>r.g==g)){sync('Mueve primero sus líneas a otro rubro')}else{S.rubros.splice(i,1);save();render()}}
+  if(t.dataset.ver||t.dataset.dl){sync('Usa los links de Drive')}
+  if(t.dataset.qa){const c=$('#qc').value.trim();if(!c){$('#qc').focus();return}pushHist();S.pres.push({g:$('#qg').value,c,n:parseFloat($('#qn').value)||0,p:parseFloat($('#qp').value)||0,x:0,d:'',pdf:'',xml:'',f:'Pendiente'});save();render()}
+  if(t.dataset.rb){const r=$('#qr').value.trim();if(r&&!rubros().includes(r)){pushHist();S.rubros.push(r);save();render()}}
+  if(t.dataset.add){if(t.dataset.add==='dir'||t.dataset.add==='pres')pushHist();S[t.dataset.add].push({...NEW[t.dataset.add],...(t.dataset.s?{s:t.dataset.s}:{})});save();render()}
+  if(t.dataset.del){const[k,i]=t.dataset.del.split(':');if(k==='dir'||k==='pres'||k==='flujo')pushHist();S[k].splice(+i,1);save();render()}
+  if(t.id=='shb'){const i=+$('#shf').value,n=+$('#shn').value||0,d0=S.tasks[i].d;if(d0){S.tasks.forEach(x=>{if(x.d&&x.d>=d0)x.d=addD(x.d,n)});save();render()}}
+  if(t.id=='undo'||t.closest&&t.closest('#undo')){undo()}
+  if(t.id=='restPres'){restorePresOriginal()}
+});
+
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.id=='cap'){S.cap=+t.value||0;save(true);return}
+  if(!applyField(t))return;
+  save(true);calc();
+  // re-render cuando el cambio afecta otras vistas (calendario, rubros, etc.)
+  if(tab=='cal'||t.dataset.a.startsWith('lk_')||(t.dataset.a=='flujo'&&t.dataset.k=='d')||(t.dataset.a=='pres'&&(t.dataset.k=='g'||t.dataset.k=='pdf'||t.dataset.k=='xml'))||t.dataset.k=='e'||t.type=='checkbox')render();
+});
+
+$('#exp').onclick=async()=>{
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const secs={
+    Cronograma:['tasks',['fa','d','a','r','e','l']],
+    'Checklist SEDECULTA':['chk',['r','e','f','ok']],
+    'Compromisos propuesta':['comp',['n','m','f','ok']],
+    'Plan de medios':['med',['n','c','f','e']],
+    Arte:['arte',['n','s','q','e','r','o']],
+    'Props y escenografia':['props',['n','s','q','e','r','o']],
+    'Vestuario y maquillaje':['vest',['n','s','q','e','r','o']],
+    'Flujo de efectivo':['flujo',['d','t','q','c','x','m']],
+    Directorio:['dir',['n','r','o','t','m','x']],
+    'Eventos adicionales':['cal',['d','n','e']],
+    Guion:['gui',['t','d','pj','a','tl','so']],
+    Personajes:['pers',['n','e','d']],
+    'Necesidades por escena':['need',['s','c','n','q','e','r','o']],
+    Presupuesto:['pres',['g','c','n','p','x','d','pdf','xml','f']]
+  };
+  let out='\ufeff';
+  for(const[t,[k,c]]of Object.entries(secs)){out+=q(t)+'\n'+S[k].map(r=>c.map(f=>q(r[f])).join(',')).join('\n')+'\n\n'}
+  for(const t of TABS){const L=S['lk_'+t[0]]||[];if(L.length)out+=q('Links Drive · '+t[1])+'\n'+L.map(r=>q(r.t)+','+q(r.u)).join('\n')+'\n\n'}
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([out],{type:'text/csv;charset=utf-8'}));
+  a.download='hijas-del-barro.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  sync('CSV descargado ✓');
+};
+
+// Arranque: cargar datos guardados y mantener actualizado
+(function init(){
+  const loaded=load();
+  render();
+  sync(loaded?'Datos recuperados · actualización continua ✓':'Listo · se actualiza solo al editar');
+  // refresca el Panorama cada 30 s si está abierto (countdown, etc.)
+  setInterval(()=>{if(tab==='pan')render()},30000);
+})();
+</script>
+</body>
+</html>
